@@ -21,7 +21,7 @@ This project aims to use NLP to categorize and understand insurance news article
 
 ## Objectives
 
-1. Webscrape and collect news articles and store in S3.
+1. Webscrape and collect news articles and store in Amazon S3.
 2. Perform topic modeling using LDA model and improve upon baseline using K-means Clustering and BERT.
 3. Evaluate its performance using various metrics such as topic coherence and silhouette score.
 4. Visualize the word importance per topic and summarize each articles using BART.
@@ -31,12 +31,12 @@ This project aims to use NLP to categorize and understand insurance news article
 ### Data and Web Scraping
 
 * The data was collected from `https://www.insurancejournal.com/news/national/`, an insurance journal news website. 
-* Utilized BeautifulSoup to scrape news articles.
-* Converted articles scraped into parquet format.
+* Utilized `BeautifulSoup` to scrape news articles.
+* Converted scraped articles into a parquet format.
 
 ### Data Storage
 
-* Used boto3 API to save scraped data into S3 buckets.
+* Used `boto3 API` to save scraped data into S3 buckets.
 * Credentials were securely managed using `.env` files. This allows users to retrieve credentials without hard-coding them.
 * To enure the code runs, you must have a `.env` file in the same directory as other files, and that you provide your AWS access key and secret key.
 
@@ -51,6 +51,8 @@ This project aims to use NLP to categorize and understand insurance news article
 
 * Applied `LDA` to create a topic distribution matrix and identified the most probable topic for each document. Classified text documents into multiple topics.
 * Generated `word plots` to understand the relevance and importance of each word to its topic.
+
+![](/images/word_plot.png)
 
 ### Evaluation Metrics
 
@@ -88,15 +90,16 @@ The metrics were as following:
 | LDA + K-means        | 0.4135          | 0.7417          | 0.4928           |
 | LDA + K-means + BERT | 0.4934          | 0.7725          | 0.4034           |
 
-Results show that combining K-means and BERT to LDA model improves the topic coherence and diversity score. However, we also notice that adding BERT to the LDA + K-means model actaully lowered the silhouette score. Further exploration is needed to find out why. 
+
+Results showed that combining K-means and BERT to LDA model **improved** the topic coherence and diversity score. However, I also noticed that adding BERT to the LDA + K-means model actaully lowered the silhouette score. Further exploration is needed to find out why. 
 
 There is a caution when using K-means clustering because K-means clustering uses distance based method for clustering, and the document-topic matrix is not a vector but a probability distribution of topics for each document, a standard K-means clustering may not capture the signals in the document well. Rather, using a probability distribution based clustering may be better (such as Jensen-Shannon (JS) Divergence)
 
 ## Applications
 
-The topics generated from this project can be invaluable for business strategy in the insurance sector. Understanding what themes and issues are prevalent in insurance news can guide companies in their marketing strategies, product development, and customer engagement efforts. Furthermore, the advanced NLP techniques used here are skills that are highly valued in data-driven industries like insurance for deriving actionable insights from large volumes of data.
+The topics generated from this project can be invaluable for business strategy in the insurance sector (and many others). Understanding what themes and issues are prevalent in insurance news can guide companies in their marketing strategies, product development, and customer engagement efforts. 
 
-* Behavioral Differences: Once these clusters are identified, the researchers can further study if there are differences in customer behavior across these clusters. For example, the "fire related claims" cluster might have a higher loss ratio compared to the "storm related claims" cluster.
+* `Behavioral Differences`: Once these clusters are identified, the researchers can further study if there are differences in customer behavior across these clusters. For example, the "fire related claims" cluster might have a higher loss ratio compared to the "storm related claims" cluster.
 
-* Tailored Marketing: Companies can use this information for targeted marketing. If a user falls into the "fire related claims" cluster, they might receive more focused ratings that deals with fire claims.
+* `Tailored Marketing`: Companies can use this information for targeted marketing. If a user falls into the "fire related claims" cluster, they might receive more focused ratings that deals with fire claims.
 
