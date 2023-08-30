@@ -37,8 +37,8 @@ This project aims to use NLP to categorize and understand insurance news article
 ### Data Storage
 
 * Used `boto3 API` to save scraped data into S3 buckets.
-* Credentials were securely managed using `.env` files. This allows users to retrieve credentials without hard-coding them.
-* To enure the code runs, you must have a `.env` file in the same directory as other files, and that you provide your AWS access key and secret key.
+* Credentials were securely managed using **.env** files. This allows users to retrieve credentials without hard-coding them.
+* To enure the code runs, you must have a **.env** file in the same directory as other files, and that you provide your AWS access key and secret key.
 
 ### Data Cleaning and Vectorization
 
@@ -103,3 +103,4 @@ The topics generated from this project can be invaluable for business strategy i
 
 * `Tailored Marketing`: Companies can use this information for targeted marketing. If a user falls into the "fire related claims" cluster, they might receive more focused ratings that deals with fire claims.
 
+* `Feature Engineering`: One of the challenges with textual data is that it's inherently unstructured, making it difficult to use in traditional predictive models. LDA transforms this text into structured numerical data in the form of topic probabilities for each document. The topics, which used to be text data and now numerical data, can then be used as features in predictive models.
