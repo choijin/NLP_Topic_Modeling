@@ -75,7 +75,7 @@ articles_df.to_parquet(file_name)
 
 # Step 5: Load to S3
 # Load the environment file with credentials
-dotenv_path = os.path.join(os.path.dirname(__file__), 'aws-credentials.env')
+dotenv_path = os.path.join(os.path.abspath(''), 'aws-credentials.env')
 load_dotenv(dotenv_path)
 
 BUCKET_NAME = "nlp-topic-modeling-project" # S3 bucket name

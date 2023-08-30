@@ -1,1 +1,8 @@
+# Ignore all env files
 *.env
+
+# Ignore MISC files
+*.DS_Store
+
+# Other ignored files
+bert_embeddings_2D.npy
