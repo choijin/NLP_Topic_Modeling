@@ -17,7 +17,7 @@ Click [HERE](https://github.com/choijin/NLP_Topic_Modeling) to see the full and 
 
 This project aims to use NLP to categorize and understand insurance news articles scraped from a news website. The goal is to use NLP to derive actionable insights and trends from these articles that could inform business decisions. LDA, which stands for Latent Dirichlet Allocation, helps in capturing underlying themes in the data which might not be immediately apparent. These themes can be crucial in understanding behavior or trends that are predictive of certain outcomes. Advanced analysis was conducted to improve upon the baseline LDA model, by adding a K-means cluster and later a BERT model.
 
-![](/images/project_pipeline.png)
+![](/images/nlp_pipeline.png)
 
 ## Objectives
 
