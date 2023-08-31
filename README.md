@@ -93,7 +93,7 @@ The metrics were as following:
 
 Results showed that combining K-means and BERT to LDA model **improved** the topic coherence and diversity score. However, I also noticed that adding BERT to the LDA + K-means model actaully lowered the silhouette score. Further exploration is needed to find out why. 
 
-There is a caution when using K-means clustering because K-means clustering uses distance based method for clustering, and the document-topic matrix is not a vector but a probability distribution of topics for each document, a standard K-means clustering may not capture the signals in the document well. Rather, using a probability distribution based clustering may be better (such as Jensen-Shannon (JS) Divergence)
+There is a caution when using K-means clustering because K-means clustering uses distance based method for clustering, and the document-topic matrix is not a vector but a probability distribution of topics for each document. A standard K-means clustering may not capture the signals in the document well. Rather, using a probability distribution based clustering may be better (such as Jensen-Shannon Divergence).
 
 ## Applications
 
